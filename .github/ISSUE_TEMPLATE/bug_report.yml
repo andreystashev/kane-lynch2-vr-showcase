@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a problem with Kane & Lynch 2 VR.
+title: "[Bug] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Mod version
+      placeholder: "0.6.25"
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Game and VR setup
+      description: Game edition, headset, connection profile and game renderer.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: What happens?
+      description: Include the mission, steps, expected behaviour and what happened instead. Do not include private files or personal information.
+    validations:
+      required: true
