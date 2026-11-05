@@ -44,4 +44,3 @@ See [installation](INSTALLATION.md), [controls](CONTROLS.md) and
 [known issues](KNOWN-ISSUES.md) for the full guide.
 
 Created by [andreystashev](https://github.com/andreystashev).
-

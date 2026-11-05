@@ -123,4 +123,3 @@ Kane & Lynch 2 and its game assets belong to their respective owners. This is
 an independent community mod, not an official IO Interactive or publisher release.
 
 This repository hosts downloads, player documentation and issue reports.
-
