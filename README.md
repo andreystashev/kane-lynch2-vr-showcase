@@ -1,6 +1,6 @@
 # Kane & Lynch 2 VR
 
-**[Download 0.6.30](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.30)** · [Installation](INSTALLATION.md) · [Controls](CONTROLS.md) · [Known issues](KNOWN-ISSUES.md)
+**[Download 0.6.31](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.31)** · [Installation](INSTALLATION.md) · [Controls](CONTROLS.md) · [Known issues](KNOWN-ISSUES.md)
 
 An unofficial first-person VR mod for **Kane & Lynch 2: Dog Days** on Windows,
 created by [andreystashev](https://github.com/andreystashev).
@@ -30,8 +30,8 @@ The other gameplay modifiers start enabled. Your choices are kept when updating.
 ## Install and play
 
 1. Run the original game through Steam at least once.
-2. Download `KaneLynch2VR-0.6.30-Setup.exe` from the
-   [release page](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.30).
+2. Download `KaneLynch2VR-0.6.31-Setup.exe` from the
+   [release page](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.31).
 3. Install the mod in its own folder, outside the game folder.
 4. Connect the headset, then open **Kane & Lynch 2 VR Settings**.
 5. Check the detected game, select your headset connection and renderer, and
