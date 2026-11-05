@@ -40,6 +40,8 @@ its renderer in mod settings.
 
 ## Launch and audio troubleshooting
 
+- If setup reports an unsupported executable, include the SHA256 shown in the
+  message and the game's Steam Build ID when reporting the problem.
 - If SteamVR opens only the desktop game window in version 0.6.25, update the
   complete mod to 0.6.26 or newer. Do not mix files from different versions.
 - If Steam stays on **Launching**, check for a pending Steam launch choice. In
