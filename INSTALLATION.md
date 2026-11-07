@@ -1,5 +1,7 @@
 # Installation
 
+These instructions apply to Kane & Lynch 2 VR **0.6.39**.
+
 You need Windows 10/11 x64, a PC VR headset and your own copy of **Kane & Lynch 2:
 Dog Days**. This release was tested with the Windows Steam version. Other game
 editions and modified executables are not guaranteed to work.
@@ -50,10 +52,41 @@ D3D9On12 GPU path. The original game can also be limited by the CPU, so lowering
 resolution does not always improve frame rate. Compare renderers in the same
 scene at the same settings; none is fastest on every PC.
 
+This release reduces image copies and repeated CPU work, but a specific FPS
+gain is not guaranteed. The eyes are still updated on alternating game frames;
+two fresh eye views from the same game state are not yet available.
+
 Set resolution and graphics quality **inside the game**, then restart it.
 Always close the game before selecting another renderer. Renderer changes
 take effect on the next launch. Existing ReShade or other renderer files may
 conflict with switching; the launcher reports this instead of replacing them.
+
+## Diagnostic logs
+
+Logging is **off by default** on a fresh installation. To collect information
+about an intermittent crash, freeze or stutter:
+
+1. Open **Kane & Lynch 2 VR Settings → Modifiers** and enable
+   **Record diagnostic logs**.
+2. Save the settings, then launch or restart the game. The option applies to
+   the next session.
+3. After the problem occurs, close the game if it is still running. Run
+   **Collect-KL2-Diagnostics.cmd** from the mod folder.
+4. Find the new `KL2-diagnostics-...-support.zip` in the mod's `diagnostics/`
+   folder. Include it with your issue report, together with the mission,
+   renderer, headset connection and a description of what happened.
+
+Logs from separate sessions are kept under `logs/sessions/`, so you can collect
+them after the game has exited. Individual logs have size limits, and the
+collector exports a limited selection of recent sessions. Turning logging off
+does not delete earlier logs. Old session folders and collected ZIPs are kept
+until you remove them.
+
+The logs include frame timing, graphics-resource errors and observed rendering
+failures. They can help investigate a problem but may not identify its cause.
+Video recording is not required or enabled by this option. The collector does
+not start or close the game, and it does not send anything automatically.
+Review the archive before sharing it publicly.
 
 ## Updates and removal
 

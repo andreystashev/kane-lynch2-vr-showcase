@@ -1,47 +1,87 @@
-# Kane & Lynch 2 VR 0.6.31
+# Kane & Lynch 2 VR 0.6.39
 
-## Steam executable compatibility
+This update improves VR projection, menus and subtitles, reduces rendering and
+CPU overhead, and adds optional diagnostics for intermittent problems.
 
-Different Steam installations can have different full-file executable hashes.
-The installer, launcher and mod now recognize compatible Steam build 3684 files
-from the game code, PE layout and native data used by the mod. Previously unseen
-files also require a Valve digital signature verified by Windows. Compatible
-Steam copies no longer need a separate full-file hash added for each player.
-Different game builds or modified game code can still be unsupported.
+## Picture, menus and subtitles
 
-This update also includes the fixes from 0.6.30:
+- Fixed a projection mismatch when the game letterboxes its output. It could
+  make the world distort or appear to swim as you turned your head.
+- In-mission pause menus now open on a flat VR panel. Panels fit within the
+  headset's field of view and use a farther default distance, so menus and
+  loading screens stay manageable after resolution or video-setting changes.
+- Restored the game's own gameplay subtitles when enabled in its settings,
+  with a small shift to the right for VR. Unwanted legacy HUD hints remain hidden.
 
-- Cover selection follows the headset direction instead of the original
-  third-person character heading.
-- Button throws of canisters and cylinders follow the current hand aim,
-  without using a cached backward or sideways swing.
-- Audio-buffer allocation recovery handles another crash during mission
-  loading or gameplay.
-- Weapon grip initialization avoids reusing another item's palm contact
-  after a scene or weapon change.
-- Earlier SteamVR startup and headset audio fixes are included.
+## Rendering and performance
+
+- Reduced intermediate OpenXR image copies and reused render-target views
+  and full-eye geometry instead of rebuilding them for each submission.
+- Removed redundant GPU flushes and an extra HUD capture copy.
+- Reduced repeated CPU work for skeleton metadata, weapon-mesh checks and HUD
+  buffers while keeping resource and ownership checks.
+- Moved diagnostic process sampling and file writes away from the compositor
+  loop and limited the amount of diagnostic work.
+
+There is no matched before-and-after FPS result for this release. Performance
+still varies by scene, renderer, resolution and PC, and stutter remains possible.
+The eyes are still rendered on alternating game frames; two fresh eye views
+from the same game state are not yet implemented.
+
+## Optional diagnostic logs
+
+**Record diagnostic logs** is available under **Modifiers** in the settings
+window. It is off on a fresh installation. Enable it, save the settings and
+restart the game before a session you want to record.
+
+The logs retain information from separate sessions, including frame timing,
+failed Direct3D resource requests and observed rendering-recovery errors.
+Individual logs have size limits. Earlier sessions are not erased at startup
+or when logging is turned off.
+
+After a failure or normal exit, run **Collect-KL2-Diagnostics.cmd** from the mod
+folder. It creates a new `KL2-diagnostics-...-support.zip` in `diagnostics/`
+with a limited selection of recent sessions. No video is required. The
+collector does not launch or close the game and does not upload anything.
+Review the archive before attaching it to an issue report. Old logs and ZIPs
+remain until you remove them.
+
+These diagnostics help investigate random failures; they do not guarantee a
+diagnosis or automatically recover the game. A graphics API error recorded near
+a failure is not necessarily its cause.
 
 ## Updating
 
-Install the complete new package. The installer preserves existing mod settings.
-Do not mix launcher, host or mod DLL files from different releases.
+Close the game and the old settings window, then install
+`KaneLynch2VR-0.6.39-Setup.exe`. A portable ZIP is also available. Use the complete
+package and keep its files together. Existing mod settings are preserved.
 
-## Before playing
+Set resolution and graphics quality inside the game, then restart it. Close
+the game before changing renderers in the mod settings.
 
-This is an early release for Windows. It was tested with the Steam version in
-single player. Co-op and multiplayer have not been tested and are not guaranteed.
+## Remaining limitations
 
-The original game's 32-bit memory limits remain. Crashes can still occur during
-mission loading or gameplay, particularly in long sessions. Some scenery or
-textures can disappear, and performance varies between scenes and renderers.
+- Random crashes and **Rendering_Setup** errors can still occur during mission
+  loading and sometimes during gameplay. A rendering error can leave the
+  headset image frozen while a dialog is open on the desktop. Long sessions
+  and repeated mission changes remain a concern within the game's 32-bit
+  memory limits.
+- Some surfaces, objects and texture detail can still disappear or change at
+  particular distances.
+- Cover, vaulting and scripted interactions can be awkward in VR. Hold **B**
+  to enter cover, release it to stay there, then use another **B hold with the
+  left stick** to move between cover or vault. Tap B to leave. The first
+  mission contains a required vault using this mechanic.
+- Eligible one-handed guns can be transferred to the left hand. Two
+  independent guns at once and automatic VR rifle-scope zoom remain unavailable.
+  Grips, reloads, poses and shadows can still have visual problems.
 
-Cover controls can feel awkward. Hold B to enter cover, then use movement with
-another B hold to move between cover or vault an obstacle. The first mission
-contains a required vault using this mechanic. See [Controls](CONTROLS.md).
+The mod is intended for the **Windows Steam single-player campaign**. Other
+editions are not guaranteed to work. Co-op and multiplayer have not been run
+or tested and are not guaranteed to work. Headset and controller compatibility
+can vary with the selected PC VR runtime.
 
-One-handed weapons can be transferred to the left hand. Two independent guns
-at once and automatic rifle scope zoom are not supported. Grips, reloads,
-shadows and scripted interactions can still have visual problems.
-
-See [Installation](INSTALLATION.md) for renderers and headset connections, and
-[Known issues](KNOWN-ISSUES.md) for current limitations.
+See [Installation](https://github.com/andreystashev/kane-lynch2-vr-showcase/blob/main/INSTALLATION.md),
+[Controls](https://github.com/andreystashev/kane-lynch2-vr-showcase/blob/main/CONTROLS.md)
+and [Known issues](https://github.com/andreystashev/kane-lynch2-vr-showcase/blob/main/KNOWN-ISSUES.md)
+for setup and current limitations.

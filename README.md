@@ -1,6 +1,6 @@
 # Kane & Lynch 2 VR
 
-**[Download 0.6.31](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.31)** · [Installation](INSTALLATION.md) · [Controls](CONTROLS.md) · [Known issues](KNOWN-ISSUES.md)
+**[Download 0.6.39](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.39)** · [Installation](INSTALLATION.md) · [Controls](CONTROLS.md) · [Known issues](KNOWN-ISSUES.md)
 
 An unofficial first-person VR mod for **Kane & Lynch 2: Dog Days** on Windows,
 created by [andreystashev](https://github.com/andreystashev).
@@ -27,11 +27,28 @@ their operation is not guaranteed. Other game editions are also unverified.
 The standard weapon crosshair is off by default and can be enabled in settings.
 The other gameplay modifiers start enabled. Your choices are kept when updating.
 
+## What's new in 0.6.39
+
+- Corrected a VR projection mismatch in letterboxed output that could make the
+  world distort or appear to swim when turning your head.
+- In-mission pause menus now use a flat VR panel, fitted to the headset's field
+  of view and placed farther away. Its size stays within view after resolution changes.
+- Restored in-game subtitles, with a small adjustment to the right for VR.
+  Enable subtitles in the game's own settings.
+- Reduced OpenXR image copies, reused rendering resources and removed redundant
+  GPU flushes. Repeated CPU work for the skeleton, weapon meshes and HUD is also reduced.
+- Added optional diagnostic logs and a collector for problems across multiple
+  sessions, including graphics-resource errors and the game's rendering-recovery state.
+
+Performance still depends on the scene, renderer and PC. These changes do not
+come with a guaranteed FPS increase, and random loading or gameplay failures
+remain unresolved.
+
 ## Install and play
 
 1. Run the original game through Steam at least once.
-2. Download `KaneLynch2VR-0.6.31-Setup.exe` from the
-   [release page](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.31).
+2. Download `KaneLynch2VR-0.6.39-Setup.exe` from the
+   [release page](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.39).
 3. Install the mod in its own folder, outside the game folder.
 4. Connect the headset, then open **Kane & Lynch 2 VR Settings**.
 5. Check the detected game, select your headset connection and renderer, and
@@ -91,9 +108,11 @@ are controlled by your PC VR application and also affect performance.
 
 ## Current limitations
 
-- **Crashes:** the original game's 32-bit memory limits and runtime checks
-  constrain the mod's memory workarounds. Crashes are most likely during mission
-  loading, but can also occur in gameplay, especially in long sessions.
+- **Crashes and freezes:** random failures remain during mission loading and
+  sometimes gameplay. A `Rendering_Setup` error can leave the headset image frozen.
+  The game's 32-bit memory limits also remain a constraint.
+- **Stereo timing:** the left and right eyes are updated on alternating game
+  frames. A stereo pair combines views from different game frames.
 - **Missing textures and objects:** some scenery can disappear and reappear at
   particular distances, and texture detail can change unexpectedly.
 - **Movement and cover:** the game was designed for third-person play. Cover,
@@ -111,7 +130,15 @@ mission transition crashes, restart the game and try your latest checkpoint.
 
 Use [Issues](https://github.com/andreystashev/kane-lynch2-vr-showcase/issues) and
 include the mod version, headset connection, renderer, mission and steps needed
-to reproduce the problem. Do not post private files or personal information.
+to reproduce the problem.
+
+For intermittent problems, enable **Modifiers → Record diagnostic logs** in
+the settings window, save, and restart the game. Logging is off on a fresh
+installation. After the problem occurs and you have closed the game, run
+`Collect-KL2-Diagnostics.cmd` from the mod folder. It creates a ZIP in
+`diagnostics/` from retained session logs. No video is needed and nothing is
+sent automatically. See the [diagnostics guide](INSTALLATION.md#diagnostic-logs)
+for details. Review the archive before sharing it publicly.
 
 ## Credits
 
