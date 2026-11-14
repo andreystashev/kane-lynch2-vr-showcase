@@ -1,50 +1,64 @@
 # VR controls
 
-The button names below follow the A/B/X/Y controller layout. Hold **Y** to see
-the controls and weapon information beside your hands. Control hints and the
-ammo/action interface can be switched on or off separately in mod settings.
+Button names follow the A/B/X/Y layout. Hold **Y** for hand controls, ammo and actions.
 
 | Control | Action |
 | --- | --- |
-| Left stick | Move; peek while in cover. |
-| Left stick click | Switch between walking and ordinary running while standing. |
+| Left stick | Move, including inside the helicopter passenger cabin. |
+| Left stick click | Switch walking / running while standing. |
 | Right stick | Turn. |
-| Right stick click, held for 0.65 seconds | Calibrate VR height and body position. Stand naturally before doing this. |
-| Trigger on the hand holding the weapon | Fire. |
-| A, tap | Reload, or perform the action shown beside the hand. |
-| A, hold while moving | Sprint; automatically stand up if crouched. Release to stop sprinting. |
-| B, tap outside cover | Crouch / stand. |
-| B, hold near cover | Enter cover. |
-| B, tap in cover | Leave cover. |
-| X | Interact, pick up, or perform a contextual close-combat / human-shield action. |
-| Y, tap | Change weapon. |
-| Y, hold | Show hand controls, ammo and action information. |
+| Right stick click, held 0.65 seconds | Calibrate VR height and body position. Stand naturally. |
+| Weapon-hand trigger | Fire. |
+| A, tap | Eject magazine / open a supported cylinder; stock reload if physical reload is off. Also performs the displayed hand action. |
+| A, hold while moving | Sprint; stand automatically if crouched. |
+| B, tap | Crouch / stand; press to get up when wounded. |
+| B, hold near an eligible low obstacle | Vault after about 0.35 seconds, standing or crouched. |
+| X | Interact, pick up, contextual close combat / human shield. |
+| Y, tap / hold | Change weapon / show hand information. |
+| Free-hand grip | Take a magazine, operate a slide / charging handle, support the fore-end. |
+| Receiving grip, held about two seconds with hands together | Transfer an eligible one-handed weapon. |
 | Menu | Pause. In menus: stick to select, A to confirm, B to go back. |
-| F9 on the keyboard | Toggle VR output. |
+| Keyboard F9 | Toggle VR output. |
 
-While holding a human shield, **A executes** and **X throws or releases** the
-shield.
+With a human shield, **A executes**, **X throws or releases** it.
 
-## Cover and obstacles
+## Vaulting and peeking
 
-1. Approach cover and **hold B** to enter it.
-2. Release B to stay in cover. Use the **left stick** to peek.
-3. To move between cover or vault an obstacle, release B, then **hold B again
-   while moving the left stick** toward the destination.
-4. **Tap B** to leave cover normally.
+The default **Vault action instead of cover** modifier removes cover entry.
+Face an eligible low obstacle with the headset, approach and **hold B**.
+Release B before trying again. X keeps ordinary interactions. No stick movement
+or cover attachment is needed. Lean physically to peek around corners or over cover.
+The visible body and view adapt; original collision and damage still apply.
 
-The first mission has a required obstacle that uses this cover-and-vault
-sequence. Moving or leaning around it physically does not replace the game's
-traversal action.
+Turning this modifier off restores earlier cover controls next launch: hold B
+to enter, release to stay, then hold B again with the stick to move between cover
+or vault. Tap B to leave.
+
+## Physical reloading
+
+**Modifiers > Physical magazine reload (experimental)** starts enabled on fresh
+installations. Changes apply next launch; explicit existing choices are preserved.
+
+1. Tap **A** to eject a magazine or open a supported revolver cylinder.
+2. Hold grip with a **free hand** near your shoulder / side of your head or hip
+   to take a replacement. You can prepare one before ejecting the old magazine.
+   A hand supporting the fore-end cannot also take a magazine.
+3. Bring the replacement to the well / open cylinder and release once seated.
+4. If needed, grip the slide / charging handle, pull back and release. A loaded
+   chamber can fire after magazine removal. Racking ejects its chambered round.
+
+Release an unused spare away from the well to return its rounds. Ejected
+magazines fall briefly and disappear; they cannot be collected. **Recover ammo
+from ejected magazines** returns their remaining rounds when on, or discards them
+when off. A chambered round stays loaded. This also covers emptied revolver rounds.
+
+Meshes and original mechanical cues come from your installed game. Sounds are
+read into memory: no game audio files are bundled or written out. Generated
+mechanical cues cover unavailable sounds. Unknown mechanisms can keep stock reload.
 
 ## Holding weapons
 
-With a weapon in the right hand, bring the left controller to its fore-end and
-**hold left grip** to support and aim it with both hands. Release grip to let go.
-
-To transfer a pistol, revolver or eligible SMG, bring the controllers close
-together and press **grip on the receiving hand**. Fire with that hand's trigger.
-The transfer happens on that grip press, even if the other grip is still held.
-The same weapon moves between hands; carrying and firing two independent guns
-at once is not supported. Fore-end support is available when carrying the
-weapon in the right hand.
+Hold left grip near the fore-end to support a weapon carried in the right hand.
+To transfer an eligible pistol, revolver or SMG, hold receiving grip for about two
+seconds with hands together. Short presses no longer transfer. Fire with the
+receiving hand's trigger. Two independent guns at once are not supported.

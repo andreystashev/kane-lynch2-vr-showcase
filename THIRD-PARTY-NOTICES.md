@@ -2,6 +2,8 @@
 
 This package includes the project's own mod runtime and launcher. It does not
 include Kane & Lynch 2 game assets or a Microsoft Direct3D runtime.
+Original reload cues are read from the player's installed game archives into
+memory. No extracted game sound files are bundled or written out.
 
 - DXVK: zlib license; see renderer-dxvk-x86/LICENSE and provenance.json.
 - D3D9On12 selector: owned selector for the Windows system implementation;

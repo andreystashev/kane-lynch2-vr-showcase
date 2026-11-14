@@ -1,25 +1,41 @@
 # Known issues
 
-These limitations still apply to **0.6.39**.
+These limitations still apply to **0.6.40**.
 
 ## Crashes and memory limits
 
+Rare crashes are still reported in the Steam version during gameplay as well
+as loading. This update does not resolve them or establish a single cause.
+
 The original game is 32-bit. Its memory limits and built-in integrity checks
-restrict what the VR mod can change. Random crashes can still occur, most often
-during mission loading, but also during gameplay. Long sessions and repeated
-chapter changes can be problematic. If a transition crashes, restarting the
-game and loading the next chapter from the menu may help.
+restrict what the VR mod can change. Crashes can still occur, most often during
+mission loading, but also during gameplay. Long sessions and repeated chapter
+changes can be problematic. If a transition crashes, restarting the game and
+loading the next chapter from the menu may help.
 
 Some rendering failures open a **Rendering_Setup** dialog on the desktop while
-the headset keeps showing a frozen image. This release adds logging for failed
-graphics-resource requests and the game's rendering-recovery state; it does
-not fix every failure or automatically recover from that dialog. A recorded
-API error alone does not establish the cause of a freeze or crash.
+the headset keeps a frozen image. Logged graphics-resource errors and recovery
+state help investigate this; the mod does not automatically recover that dialog.
+A recorded API error alone does not establish the cause of a freeze or crash.
 
-For an intermittent failure, enable logs **before** the next session, then
-collect them after closing the game. See [Diagnostic logs](INSTALLATION.md#diagnostic-logs).
-There is no need to record video or repeatedly replay a mission just to gather
-logs from a failure that has already been recorded.
+## Diagnostic logs
+
+In VR settings, enable **Record diagnostic logs** before reproducing a problem,
+then restart the mod. Logging is off by default. Each recorded game run keeps
+its own folder under `logs/sessions/`, with related game, renderer and VR host
+sources. Restarting or turning logging off does not erase earlier sessions.
+
+After a crash or an error, run **Collect-KL2-Diagnostics.cmd** from the mod folder.
+It creates a uniquely named ZIP in `diagnostics/`, including the latest five
+recorded sessions, available older diagnostic files, package hashes and relevant
+Windows crash events from the preceding 48 hours. Send that ZIP with the mod
+version, renderer and the action or mission that failed. The export tool also
+works after the game has closed and does not start or stop it.
+
+Export limits or unavailable sources are listed in `collection.json`. Individual
+logs are bounded, and the export does not delete any source session. Recorded
+folders may be removed manually when no longer needed. Logging records
+diagnostics and performance history; it does not enable video recording.
 
 ## Missing surfaces and texture detail
 
@@ -27,31 +43,35 @@ Some surfaces or objects can disappear and reappear at particular distances.
 Texture detail can also change unexpectedly while moving. These issues are
 not fully resolved.
 
-## Movement, cover and hands
+## Movement, physical reloading and hands
 
-This is a VR adaptation of a third-person game. Cover and scripted interactions
-can feel awkward; some poses, grips, reloads and shadows can look unnatural.
-Follow the [cover controls](CONTROLS.md) when vaulting or moving between cover.
+Default traversal is **hold B to vault**, without entering cover. Physical
+peeking and reloads adapt a third-person game; grips, contact points, poses and
+scripted interactions can still need adjustment. See [Controls](CONTROLS.md).
 
-Physical leaning does not move the character's collision body, so the camera
-can clip through nearby walls. Recalibrate VR height and body position with a
-0.65-second hold of the right stick click if the view feels misplaced.
+Physical leaning adapts the first-person view and visible torso; the original
+collision and damage model remain. Clearance protection does not replace that
+system. Clipping or unwanted darkening can still occur. Recalibrate with a
+0.65-second right stick click hold if the view feels misplaced.
 
-One-handed weapon transfer is available, but two independent guns at once are
-not supported. Automatic scope zoom by bringing a rifle to the headset is not
-available.
+Physical reloading is experimental. Unrecognized mechanisms can retain stock
+reload. Ejected magazines are cosmetic and cannot be collected. Helicopter
+movement stays within a bounded passenger area, rather than the entire vehicle.
+
+Two independent guns at once and automatic VR rifle-scope zoom remain unavailable.
 
 ## Graphics and performance
+
+Performance and stutter remain unresolved. No measured FPS increase or smooth
+frame delivery in every scene is claimed for this release.
 
 Frame rate varies between scenes and renderers. Lowering graphics settings or
 resolution may help, but CPU limits can remain. See the
 [renderer guide](INSTALLATION.md#renderers-and-performance).
 
-The OpenXR and CPU optimizations in this release reduce specific overheads;
-there is no matched before-and-after FPS result or guaranteed frame-rate gain.
-The eyes are still updated on alternating game frames, rather than both being
-rendered freshly from one game state. Fast motion and head turns can therefore
-feel less smooth than the headset's refresh rate suggests.
+The eyes are updated on alternating game frames, rather than both freshly
+rendered from one game state. Fast motion and head turns can therefore feel
+less smooth than the headset refresh rate suggests.
 
 Changing graphics settings can leave a frozen image in the headset or disrupt
 the hands. Restart the game after changing them. Close the game before changing
