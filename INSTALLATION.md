@@ -1,6 +1,6 @@
 # Installation
 
-These instructions apply to Kane & Lynch 2 VR **0.6.39**.
+These instructions apply to Kane & Lynch 2 VR **0.6.41**.
 
 You need Windows 10/11 x64, a PC VR headset and your own copy of **Kane & Lynch 2:
 Dog Days**. This release was tested with the Windows Steam version. Other game
@@ -52,9 +52,9 @@ D3D9On12 GPU path. The original game can also be limited by the CPU, so lowering
 resolution does not always improve frame rate. Compare renderers in the same
 scene at the same settings; none is fastest on every PC.
 
-This release reduces image copies and repeated CPU work, but a specific FPS
-gain is not guaranteed. The eyes are still updated on alternating game frames;
-two fresh eye views from the same game state are not yet available.
+New installations render both eyes from one game update in supported gameplay
+scenes. Other scenes can use sequential eye updates or a flat display. The mod
+reduces repeated CPU work. Frame rates still vary by scene, renderer and system.
 
 Set resolution and graphics quality **inside the game**, then restart it.
 Always close the game before selecting another renderer. Renderer changes

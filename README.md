@@ -1,6 +1,6 @@
 # Kane & Lynch 2 VR
 
-**[Download 0.6.40](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.40)** · [Installation](INSTALLATION.md) · [Controls](CONTROLS.md) · [Known issues](KNOWN-ISSUES.md)
+**[Download 0.6.41](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.41)** · [Installation](INSTALLATION.md) · [Controls](CONTROLS.md) · [Known issues](KNOWN-ISSUES.md)
 
 An unofficial first-person VR mod for **Kane & Lynch 2: Dog Days** on Windows,
 created by [andreystashev](https://github.com/andreystashev).
@@ -27,32 +27,28 @@ their operation is not guaranteed. Other game editions are also unverified.
 - Controller navigation for menus and a VR height/body calibration.
 - Game audio routing to the selected headset.
 
-The standard weapon crosshair is off by default and can be enabled in settings.
-The other gameplay modifiers start enabled. Your choices are kept when updating.
+The standard weapon crosshair and experimental VR cutscenes are off by default.
+You can enable them in **Modifiers**. Existing choices are kept when updating.
 
-## What's new in 0.6.40
+## What's new in 0.6.41
 
-- Physical reloading, spares near the shoulder or hip, slide / charging-handle
-  operation and a choice to recover or lose discarded rounds.
-- Physical peeking around corners and over cover. Default traversal is now
-  **hold B to vault**, standing or crouched, without entering cover first.
-- Fixed long dark streaks from tracked hand / weapon shadows near the shadow
-  area's edge; improved head / hair and stationary body-pose handling.
-- Movement inside the helicopter passenger cabin and unlimited magazine supply.
-- Improved camera settling, weapon contact near walls, magazine / slide
-  alignment, weapon switching and canister / cylinder throw animations.
-- Original reload sounds are read from the installed game into memory;
-  no game sound files are distributed or written out.
+- Tap **A** with the movement stick centred to reload. Hold **A** while moving
+  to sprint. Releasing **A** early during movement leaves the magazine in place.
+- Subtitles, speaker names and icons move together toward the centre. The
+  original crosshair keeps its proportions, and the laser tracks more consistently.
+- The settings window has fewer switches. Helicopter escape prompts show VR buttons.
+- Improved throwing, magazine handling, camera settling and getting up near cover.
+- Both native eye views render from one game update in supported scenes. The
+  renderer reuses more work between eyes and across layers of the HUD.
 
-**Rare Steam crashes and performance / stutter problems remain unresolved.**
-This is a pre-release, with no claimed FPS increase. See the
+**Rare Steam crashes and stutter remain possible.** See the
 [release notes](RELEASE-NOTES.md) and [known issues](KNOWN-ISSUES.md).
 
 ## Install and play
 
 1. Run the original game through Steam at least once.
-2. Download `KaneLynch2VR-0.6.40-Setup.exe` from the
-   [release page](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.40).
+2. Download `KaneLynch2VR-0.6.41-Setup.exe` from the
+   [release page](https://github.com/andreystashev/kane-lynch2-vr-showcase/releases/tag/v0.6.41).
 3. Install the mod in its own folder, outside the game folder.
 4. Connect the headset, then open **Kane & Lynch 2 VR Settings**.
 5. Check the detected game, select your headset connection and renderer, and
@@ -76,19 +72,17 @@ Other controllers may need different runtime bindings.
 | Right stick | Turn. |
 | Hold right stick click | Calibrate VR height and body position. |
 | Trigger on the weapon hand | Fire. |
-| A | Tap to reload; hold while moving to sprint. |
+| A | Tap with the movement stick centred to reload. Hold while moving to sprint. |
 | B | Tap to crouch / stand or get up when wounded; hold near a low obstacle to vault. |
 | X | Interact, pick up, or use a contextual action. |
-| Y | Tap to change weapon; hold for hand hints, ammo and action information. |
+| Y | Tap to change weapon. Hold to show the HUD. |
 | Grip | Support, magazine or charging handle; hold receiving grip 2s with hands together to transfer. |
 | Menu | Pause. |
 
 **Vaulting:** face an eligible low obstacle with the headset, approach and
-hold **B** for about 0.35 seconds. No cover entry is needed. Lean physically to
-peek. Turning **Vault action instead of cover** off restores earlier cover
-controls next launch.
+hold **B** for about 0.35 seconds. Lean physically to peek around obstacles.
 
-**Physical reloading:** tap **A**, grip near the shoulder or hip with a free hand,
+For physical reloading, centre the movement stick and tap **A**. Grip near the shoulder or hip with a free hand,
 bring the spare to the well and release. Grip and pull the slide / charging handle
 if needed. **Physical magazine reload (experimental)** and **Recover ammo from
 ejected magazines** are in Modifiers. Physical reload starts enabled on fresh
@@ -121,8 +115,8 @@ are controlled by your PC VR application and also affect performance.
 - **Crashes and freezes:** random failures remain during mission loading and
   sometimes gameplay. A `Rendering_Setup` error can leave the headset image frozen.
   The game's 32-bit memory limits also remain a constraint.
-- **Stereo timing:** the left and right eyes are updated on alternating game
-  frames. A stereo pair combines views from different game frames.
+- **Stereo timing:** supported gameplay scenes render both eyes in one game update.
+  Other scenes can use sequential eye updates or a flat display.
 - **Missing textures and objects:** some scenery can disappear and reappear at
   particular distances, and texture detail can change unexpectedly.
 - **Movement:** direct vaulting and physical peeking adapt a third-person game;

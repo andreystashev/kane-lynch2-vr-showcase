@@ -1,6 +1,6 @@
 # Known issues
 
-These limitations still apply to **0.6.40**.
+These limitations still apply to **0.6.41**.
 
 ## Crashes and memory limits
 
@@ -69,9 +69,9 @@ Frame rate varies between scenes and renderers. Lowering graphics settings or
 resolution may help, but CPU limits can remain. See the
 [renderer guide](INSTALLATION.md#renderers-and-performance).
 
-The eyes are updated on alternating game frames, rather than both freshly
-rendered from one game state. Fast motion and head turns can therefore feel
-less smooth than the headset refresh rate suggests.
+New installations render both eye views from one game update in supported
+gameplay. Other scenes can use sequential eye updates or a flat display.
+Fast motion can still feel less smooth than the headset refresh rate suggests.
 
 Changing graphics settings can leave a frozen image in the headset or disrupt
 the hands. Restart the game after changing them. Close the game before changing

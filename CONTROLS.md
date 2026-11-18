@@ -1,6 +1,6 @@
 # VR controls
 
-Button names follow the A/B/X/Y layout. Hold **Y** for hand controls, ammo and actions.
+Button names follow the A/B/X/Y layout. Hold **Y** to reveal the HUD.
 
 | Control | Action |
 | --- | --- |
@@ -9,7 +9,7 @@ Button names follow the A/B/X/Y layout. Hold **Y** for hand controls, ammo and a
 | Right stick | Turn. |
 | Right stick click, held 0.65 seconds | Calibrate VR height and body position. Stand naturally. |
 | Weapon-hand trigger | Fire. |
-| A, tap | Eject magazine / open a supported cylinder; stock reload if physical reload is off. Also performs the displayed hand action. |
+| A, tap with the movement stick centred | Eject the magazine or open a supported cylinder. Uses stock reload when physical reload is off. A also performs the displayed contextual hand action. |
 | A, hold while moving | Sprint; stand automatically if crouched. |
 | B, tap | Crouch / stand; press to get up when wounded. |
 | B, hold near an eligible low obstacle | Vault after about 0.35 seconds, standing or crouched. |
@@ -24,22 +24,17 @@ With a human shield, **A executes**, **X throws or releases** it.
 
 ## Vaulting and peeking
 
-The default **Vault action instead of cover** modifier removes cover entry.
-Face an eligible low obstacle with the headset, approach and **hold B**.
+Face an eligible low obstacle with the headset, approach and **hold B** to vault.
 Release B before trying again. X keeps ordinary interactions. No stick movement
 or cover attachment is needed. Lean physically to peek around corners or over cover.
 The visible body and view adapt; original collision and damage still apply.
-
-Turning this modifier off restores earlier cover controls next launch: hold B
-to enter, release to stay, then hold B again with the stick to move between cover
-or vault. Tap B to leave.
 
 ## Physical reloading
 
 **Modifiers > Physical magazine reload (experimental)** starts enabled on fresh
 installations. Changes apply next launch; explicit existing choices are preserved.
 
-1. Tap **A** to eject a magazine or open a supported revolver cylinder.
+1. Centre the movement stick and tap **A** to eject a magazine or open a supported revolver cylinder.
 2. Hold grip with a **free hand** near your shoulder / side of your head or hip
    to take a replacement. You can prepare one before ejecting the old magazine.
    A hand supporting the fore-end cannot also take a magazine.
